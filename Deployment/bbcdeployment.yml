@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: bbc
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ass2
+        service: bbc
+    spec:
+      containers:
+        - name: bbc
+          image: "rmeany/assignment1:bbc"

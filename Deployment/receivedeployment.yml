@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: receive
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ass2
+        service: receive
+    spec:
+      containers:
+        - name: receive
+          image: "rmeany/assignment1:receive"
