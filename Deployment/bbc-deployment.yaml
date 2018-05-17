@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yml
+    kompose.version: 1.13.0 (84fa826)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: bbc
+  name: bbc
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: bbc
+    spec:
+      containers:
+      - args:
+        - ./wait-for-it.sh
+        - -t
+        - "0"
+        - rabbitmq:5672
+        - --
+        - python
+        - BBCnews.py
+        image: rmeany/assignment1:bbc
+        name: bbc
+        resources: {}
+      restartPolicy: Always
+status: {}
