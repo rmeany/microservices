@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: web
   name: web
 spec:
-  replicas: 1
+  replicas: 2
   strategy: {}
   template:
     metadata:
@@ -18,9 +18,19 @@ spec:
         io.kompose.service: web
     spec:
       containers:
-      - image: rmeany/assignment1:web
+      - args:
+        - ./wait-for-it.sh
+        - -t
+        - "0"
+        - rabbitmq:5672
+        - --
+        - python
+        - app.py
+        image: rmeany/assignment1:web
         name: web
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
         resources: {}
       restartPolicy: Always
+status: {}

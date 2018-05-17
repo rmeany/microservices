@@ -28,6 +28,7 @@ spec:
         - BBCnews.py
         image: rmeany/assignment1:bbc
         name: bbc
+        imagePullPolicy: Always
         resources: {}
       restartPolicy: Always
 status: {}

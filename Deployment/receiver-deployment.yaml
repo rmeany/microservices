@@ -9,7 +9,7 @@ metadata:
     io.kompose.service: receiver
   name: receiver
 spec:
-  replicas: 1
+  replicas: 2
   strategy: {}
   template:
     metadata:
@@ -28,6 +28,7 @@ spec:
         - Receive.py
         image: rmeany/assignment1:receive
         name: receiver
+        imagePullPolicy: Always
         resources: {}
       restartPolicy: Always
 status: {}

@@ -28,6 +28,7 @@ spec:
         - OldTwitterClient.py
         image: rmeany/assignment1:client
         name: sender
+        imagePullPolicy: Always
         resources: {}
       restartPolicy: Always
 status: {}
