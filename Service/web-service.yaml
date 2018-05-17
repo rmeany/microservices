@@ -16,4 +16,4 @@ spec:
     nodePort: 30001
   selector:
     io.kompose.service: web
-  type: LoadBalancer
+  type: NodePort
